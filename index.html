@@ -4,218 +4,183 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Thommem Medical Consultation Funnel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --primary: #000000;
-  --surface: #ffffff;
-  --ink: #0f172a;
-  --muted: #475569;
-  --bg: #0055a2;
+:root{
+  --primary:#000000;
+  --accent:#dadada;
+  --ink:#0f172a;
+  --muted:#475569;
+  --surface:#ffffff;
+  --bg:#0055a2;
+  --radius:16px;
+  --radiuslg:22px;
+  --space1:8px;
+  --space2:12px;
+  --space3:16px;
+  --space4:24px;
+  --space5:32px;
+  --space6:48px;
+  --space7:64px;
 }
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Georgia, Cambria, 'Times New Roman', serif;
-  color: var(--ink);
-  background: var(--bg);
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Montserrat',Arial,sans-serif;
+  color:var(--ink);
+  background:linear-gradient(180deg,#f8fbff 0%,var(--bg) 42%,#f8fbff 100%);
+  line-height:1.55;
 }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
-.section { padding: 56px 0; }
-.hero {
-  background: radial-gradient(circle at center, #6f89a8 0%, var(--primary) 60%);
-  color: #f8fafc;
-  text-align: center;
-  padding: 36px 0 52px;
+.wrap{max-width:1100px;margin:0 auto;padding:0 var(--space4)}
+.section{padding:var(--space7) 0}
+.hero{
+  background:radial-gradient(1200px 500px at 50% 15%, rgba(255,255,255,.18) 0%, transparent 55%),linear-gradient(135deg,var(--primary) 0%,#2e5f93 40%,var(--accent) 100%);
+  color:#f8fafc;
+  text-align:center;
+  padding:var(--space6) 0 var(--space7);
 }
-.brand-logo { max-height: 56px; max-width: 220px; object-fit: contain; margin-bottom: 20px; }
-.hero h1 {
-  margin: 0 auto 14px;
-  font-size: clamp(2rem, 5vw, 3.6rem);
-  max-width: 900px;
-  line-height: 1.12;
+.brandlogo{max-height:58px;max-width:240px;object-fit:contain;margin-bottom:var(--space4)}
+h1{
+  margin:0 auto var(--space3);
+  font-size:clamp(2rem,5vw,3.5rem);
+  line-height:1.12;
+  max-width:920px;
+  letter-spacing:-.01em;
 }
-.sub { font-size: 1.22rem; margin: 0 auto 28px; max-width: 860px; font-family: 'Trebuchet MS', Arial, sans-serif; }
-.video-box {
-  width: min(860px, 100%);
-  aspect-ratio: 16 / 9;
-  border-radius: 8px;
-  border: 2px solid #dbeafe;
-  background: #020617;
-  margin: 0 auto 30px;
-  display: grid;
-  place-items: center;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: .02em;
+.sub{margin:0 auto var(--space5);max-width:860px;font-size:1.15rem;font-weight:500;color:#e5eef9}
+.vslbox{width:min(880px,100%);aspect-ratio:16/9;border-radius:12px;border:2px solid rgba(255,255,255,.55);background:#020617;display:grid;place-items:center;margin:0 auto var(--space5);font-weight:700;letter-spacing:.03em}
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:#123b66;
+  background:linear-gradient(180deg,#ffffff 0%,#e9f1fb 100%);
+  border:1px solid rgba(255,255,255,.75);
+  padding:16px 44px;
+  border-radius:999px;
+  font-weight:800;
+  box-shadow:0 14px 30px rgba(2,6,23,.25);
 }
-.cta {
-  display: inline-block;
-  background: #f8fafc;
-  color: #123863;
-  text-decoration: none;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-  font-weight: 800;
-  font-size: 1.15rem;
-  padding: 16px 42px;
-  border-radius: 999px;
-  box-shadow: 0 10px 24px rgba(2, 6, 23, .25);
+.btn:hover{transform:translateY(-1px)}
+.center{text-align:center}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);margin:0 0 var(--space4);letter-spacing:-.01em}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space4)}
+.card{
+  background:linear-gradient(180deg,#ffffff 0%,#f9fbff 100%);
+  border:1px solid #d8e2ef;
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:0 12px 28px rgba(15,23,42,.08);
 }
-.center { text-align: center; }
-h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: 0 0 18px; text-align: center; }
-h3 { margin: 0 0 12px; font-size: 1.25rem; }
-.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.card {
-  background: var(--surface);
-  border: 1px solid #d5dbe4;
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 10px 20px rgba(15, 23, 42, .08);
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-}
-.placeholder {
-  background: #0b1220;
-  color: #f8fafc;
-  border: 2px solid #eab308;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16/10;
-  font-weight: 700;
-}
-.review { font-family: 'Trebuchet MS', Arial, sans-serif; color: var(--muted); line-height: 1.6; }
-.about {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 28px;
-  align-items: start;
-}
-.about-photo { width: 100%; border-radius: 34px; object-fit: cover; min-height: 360px; }
-.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
-.stat {
-  text-align: center;
-  border: 1px solid #d5dbe4;
-  border-radius: 12px;
-  padding: 12px;
-  background: #f8fafc;
-  font-family: 'Trebuchet MS', Arial, sans-serif;
-}
-.stat b { font-size: 1.4rem; display: block; color: #123863; }
-.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.step-num {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #123863;
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-.booking {
-  border: 1px solid #d5dbe4;
-  border-radius: 16px;
-  background: #fff;
-  padding: 22px;
-  min-height: 340px;
-}
-.book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
-.book-left { padding: 22px; border-right: 5px solid #38bdf8; font-family: 'Trebuchet MS', Arial, sans-serif; }
-.book-right { padding: 22px; font-family: 'Trebuchet MS', Arial, sans-serif; }
-.muted { color: var(--muted); }
-@media (max-width: 920px){
-  .grid3, .steps, .about, .book-grid { grid-template-columns: 1fr; }
-  .book-left { border-right: 0; border-bottom: 5px solid #38bdf8; }
+.placeholder{background:#0b1220;color:#f8fafc;border:2px solid #f2c24f;border-radius:12px;display:grid;place-items:center;aspect-ratio:16/10;font-weight:700;font-size:.95rem;text-align:center;padding:10px}
+.review{font-size:.95rem;color:var(--muted)}
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--space5);align-items:start}
+.aboutphoto{width:100%;min-height:380px;object-fit:cover;border-radius:34px;box-shadow:0 14px 32px rgba(15,23,42,.14)}
+.muted{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space3);margin-top:var(--space4)}
+.stat{border:1px solid #d8e2ef;border-radius:12px;background:#fff;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.2rem;color:#123b66;margin-bottom:4px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space3)}
+.stepnum{width:42px;height:42px;border-radius:11px;background:#123b66;color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.booking{border:1px solid #d8e2ef;border-radius:18px;background:#fff;box-shadow:0 12px 28px rgba(15,23,42,.08);overflow:hidden}
+.bookgrid{display:grid;grid-template-columns:1fr 1fr}
+.bookleft{padding:28px;border-right:4px solid #38bdf8}
+.bookright{padding:28px}
+.calendar{min-height:230px;display:grid;place-items:center;font-weight:700;border-radius:12px;background:linear-gradient(180deg,#ffffff 0%,#f6f9ff 100%);border:1px solid #d8e2ef}
+@media(max-width:980px){
+  .grid3,.steps,.about,.bookgrid{grid-template-columns:1fr}
+  .bookleft{border-right:0;border-bottom:4px solid #38bdf8}
+  .section{padding:54px 0}
 }
 </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div><img src="https://www.thommenmedical.com/typo3conf/ext/thommenmedical/Resources/Public/Css/Images/logo.svg" alt="Thommem Medical logo" class="brand-logo"></div>
-      <h1>Discover How Missing Teeth Can Become A Confident Smile In As Little As 90 Days</h1>
-      <p class="sub">Watch this short video to see the exact implant process, expected timeline, and who qualifies for a private consultation</p>
-      <div class="video-box">VSL VIDEO PLACEHOLDER</div>
-      <a class="cta" href="#book">SCHEDULE YOUR CONSULTATION</a>
-    </div>
-  </header>
+<header class="hero">
+  <div class="wrap">
+    <div><img src="https://www.thommenmedical.com/typo3conf/ext/thommenmedical/Resources/Public/Css/Images/logo.svg" alt="Thommem Medical logo" class="brandlogo"></div>
+    <h1>Discover How Missing Teeth Can Become A Confident Smile In As Little As 90 Days</h1>
+    <p class="sub">Watch this short video to see the exact implant process, expected timeline, and who qualifies for a private consultation</p>
+    <div class="vslbox">VSL VIDEO PLACEHOLDER</div>
+    <a class="btn" href="#book">SCHEDULE YOUR CONSULTATION</a>
+  </div>
+</header>
 
-  <section class="section wrap">
-    <h2>REAL BEFORE AND AFTER RESULTS</h2>
-    <div class="grid3">
-      <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
-      <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
-      <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
-    </div>
-  </section>
+<section class="section wrap">
+  <h2 class="center">REAL BEFORE AND AFTER RESULTS</h2>
+  <div class="grid3">
+    <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
+    <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
+    <div class="placeholder">BEFORE AND AFTER PHOTO PLACEHOLDER</div>
+  </div>
+</section>
 
-  <section class="section wrap">
-    <p class="center" style="font-family: 'Trebuchet MS', Arial, sans-serif; font-weight: 800; font-size: 1.5rem;">5000 PLUS HAPPY PATIENTS</p>
-    <h2>HEAR FROM THOUSANDS OF HAPPY PATIENTS</h2>
-    <div class="grid3" style="margin-bottom:22px;">
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-      <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
-    </div>
-    <p class="center" style="font-family: 'Trebuchet MS', Arial, sans-serif; font-weight: 800; font-size: 1.4rem;">98 POINT 4 PERCENT OF REVIEWERS WOULD REFER US</p>
-    <div class="grid3">
-      <article class="card review"><p>Five star patient care with clear communication and confident results</p><b>Patient Review</b><small>One week ago</small></article>
-      <article class="card review"><p>The team made every step simple and stress free from consult to final smile</p><b>Patient Review</b><small>Two weeks ago</small></article>
-      <article class="card review"><p>Professional guidance clear pricing and beautiful outcomes that feel natural</p><b>Patient Review</b><small>One month ago</small></article>
-    </div>
-    <div class="center" style="margin-top:28px;"><a class="cta" href="#book">SCHEDULE YOUR CONSULTATION</a></div>
-  </section>
+<section class="section wrap">
+  <p class="center" style="font-weight:800;font-size:1.3rem;margin:0 0 10px;">5000 PLUS HAPPY PATIENTS</p>
+  <h2 class="center">HEAR FROM THOUSANDS OF HAPPY PATIENTS</h2>
+  <div class="grid3" style="margin-bottom:24px;">
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+    <div class="placeholder">PATIENT VIDEO PLACEHOLDER</div>
+  </div>
+  <p class="center" style="font-weight:800;font-size:1.2rem;margin:0 0 24px;">98 POINT 4 PERCENT OF REVIEWERS WOULD REFER US</p>
+  <div class="grid3">
+    <article class="card review"><p>Five star care with clear communication and confident outcomes from start to finish</p><b>Patient Review</b><small>One week ago</small></article>
+    <article class="card review"><p>The team made each step simple and comfortable and the final smile looks natural</p><b>Patient Review</b><small>Two weeks ago</small></article>
+    <article class="card review"><p>Professional guidance transparent pricing and excellent support throughout treatment</p><b>Patient Review</b><small>One month ago</small></article>
+  </div>
+  <div class="center" style="margin-top:30px;"><a class="btn" href="#book">SCHEDULE YOUR CONSULTATION</a></div>
+</section>
 
-  <section class="section wrap">
-    <div class="about">
-      <div><img src="https://www.thommenmedical.com/typo3conf/ext/country_contact/Resources/Public/Icons/flags/default.svg" alt="Thommem Medical team" class="about-photo"></div>
-      <div>
-        <p class="muted" style="font-family: 'Trebuchet MS', Arial, sans-serif; font-size:1.2rem; margin:0 0 8px;">About Us</p>
-        <h2 style="text-align:left; margin-bottom:10px;">Thommem Medical</h2>
-        <p class="muted" style="font-family: 'Trebuchet MS', Arial, sans-serif;"> Download-Center Download Center Contact EN Login Dental Professionals Shop Patients About Thommen Medical Download Center Contact EN Dental Professionals Shop Patients About Thommen Medical Our company Our company Our History Our Quality Promise Society &amp; Environment Organization Distribution Career Contact Login EN Dental Professionals Shop Patients About Thommen Medical Our company Our company Our History Our Quality Promise Society &amp; Environment Organization Distribution Career Contact Downl</p>
-        <div class="stats">
-          <div class="stat"><b>5000 PLUS</b><span>Implants placed</span></div>
-          <div class="stat"><b>2000 PLUS</b><span>Smile makeovers</span></div>
-          <div class="stat"><b>98 POINT 4</b><span>Positive reviews</span></div>
-        </div>
+<section class="section wrap">
+  <div class="about">
+    <div><img src="https://www.thommenmedical.com/typo3conf/ext/country_contact/Resources/Public/Icons/flags/default.svg" alt="Thommem Medical team" class="aboutphoto"></div>
+    <div>
+      <p class="muted" style="margin:0 0 8px; font-weight:600;">About Us</p>
+      <h2 style="text-align:left; margin-bottom:12px;">Thommem Medical</h2>
+      <p class="muted" style="margin-top:0;"> Download-Center Download Center Contact EN Login Dental Professionals Shop Patients About Thommen Medical Download Center Contact EN Dental Professionals Shop Patients About Thommen Medical Our company Our company Our History Our Quality Promise Society &amp; Environment Organization Distribution Career Contact Login EN Dental Professionals Shop Patients About Thommen Medical Our company Our company Our History Our Quality Promise Society &amp; Environment Organization Distribution Career Contact Downl</p>
+      <div class="stats">
+        <div class="stat"><b>5000 PLUS</b><span>Implants placed</span></div>
+        <div class="stat"><b>2000 PLUS</b><span>Smile makeovers</span></div>
+        <div class="stat"><b>98 POINT 4</b><span>Positive reviews</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section wrap">
-    <h2>WHAT WE WILL COVER ON YOUR CONSULTATION</h2>
-    <div class="steps">
-      <article class="card"><div class="step-num">1</div><h3>Your custom treatment plan</h3><p class="muted">You will learn the ideal implant approach for your goals and oral health needs</p></article>
-      <article class="card"><div class="step-num">2</div><h3>Timeline and process</h3><p class="muted">You will see every stage of care with clear milestones and expectations</p></article>
-      <article class="card"><div class="step-num">3</div><h3>Pricing and options</h3><p class="muted">You will review investment options and payment paths with full transparency</p></article>
-      <article class="card"><div class="step-num">4</div><h3>Smile preview</h3><p class="muted">You will understand what your restored smile can look and feel like</p></article>
-      <article class="card"><div class="step-num">5</div><h3>Comfort support</h3><p class="muted">You will learn comfort options that help create a calm and confident experience</p></article>
-      <article class="card"><div class="step-num">6</div><h3>Next step scheduling</h3><p class="muted">You will leave with a clear personalized plan for what happens next</p></article>
-    </div>
-  </section>
+<section class="section wrap">
+  <h2 class="center">WHAT WE WILL COVER ON YOUR CONSULTATION</h2>
+  <div class="steps">
+    <article class="card"><div class="stepnum">1</div><h3>Your custom treatment plan</h3><p class="muted">You will learn the ideal implant path for your goals and oral health needs</p></article>
+    <article class="card"><div class="stepnum">2</div><h3>Timeline and process</h3><p class="muted">You will see each treatment phase with clear milestones and expectations</p></article>
+    <article class="card"><div class="stepnum">3</div><h3>Pricing and options</h3><p class="muted">You will review investment options and payment paths with transparency</p></article>
+    <article class="card"><div class="stepnum">4</div><h3>Smile preview</h3><p class="muted">You will understand what your restored smile can look and feel like</p></article>
+    <article class="card"><div class="stepnum">5</div><h3>Comfort support</h3><p class="muted">You will learn comfort options for a calm and confident treatment experience</p></article>
+    <article class="card"><div class="stepnum">6</div><h3>Next step scheduling</h3><p class="muted">You will leave with a clear personalized plan for what happens next</p></article>
+  </div>
+</section>
 
-  <section class="section wrap" id="book">
-    <h2>FIND A TIME TO SPEAK WITH US</h2>
-    <div class="booking">
-      <div class="book-grid">
-        <div class="book-left">
-          <p class="muted" style="font-weight:700; margin-top:0;">Thommem Medical</p>
-          <h3 style="font-size:2rem; margin-bottom:8px;">Consultation Page</h3>
-          <p class="muted">30 minute call</p>
-          <p class="muted">Phone consultation</p>
-          <p class="muted">This area is a scheduling placeholder and can be replaced with your booking widget</p>
-        </div>
-        <div class="book-right">
-          <h3>Select date and time</h3>
-          <div class="card" style="min-height:220px; display:grid; place-items:center; font-weight:700;">CALENDAR WIDGET PLACEHOLDER</div>
-          <p class="muted" style="margin-top:14px;">Time zone will auto detect for each visitor</p>
-        </div>
+<section class="section wrap" id="book">
+  <h2 class="center">FIND A TIME TO SPEAK WITH US</h2>
+  <div class="booking">
+    <div class="bookgrid">
+      <div class="bookleft">
+        <p class="muted" style="font-weight:700; margin:0 0 8px;">Thommem Medical</p>
+        <h3 style="font-size:2rem; margin:0 0 8px;">Consultation Page</h3>
+        <p class="muted">30 minute call</p>
+        <p class="muted">Phone consultation</p>
+        <p class="muted">This area is a scheduling placeholder and can be replaced with your booking widget</p>
+      </div>
+      <div class="bookright">
+        <h3>Select date and time</h3>
+        <div class="calendar">CALENDAR WIDGET PLACEHOLDER</div>
+        <p class="muted" style="margin-top:14px;">Time zone will auto detect for each visitor</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </body>
 </html>
